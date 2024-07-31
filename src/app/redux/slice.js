@@ -18,7 +18,9 @@ const Slice = createSlice({
 
       state.users.push(data);
       let userData = JSON.stringify(current(state.users));
-      localStorage.setItem("users", userData);
+      if (typeof window !== "undefined") {
+        localStorage.setItem("users", userData);
+      }
     },
     removeUser: (state, action) => {
       const data = state.users.filter((item) => {
@@ -26,7 +28,9 @@ const Slice = createSlice({
       });
       state.users = data;
       let userData = JSON.stringify(data);
-      localStorage.setItem("users", userData);
+      if (typeof window !== "undefined") {
+        localStorage.setItem("users", userData);
+      }
     },
     editUser: (state, action) => {
       const { id, name } = action.payload; // Destructure id and name from action payload
@@ -35,7 +39,9 @@ const Slice = createSlice({
         // Check if the user exists
         state.users[userIndex].name = name; // Update the user's name
         let userData = JSON.stringify(current(state.users)); // Convert the updated state to a JSON string
-        localStorage.setItem("users", userData); // Save the updated users list to localStorage
+        if (typeof window !== "undefined") {
+          localStorage.setItem("users", userData); // Save the updated users list to localStorage
+        }
       }
     },
   },
