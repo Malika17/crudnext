@@ -70,36 +70,16 @@
 /*!***************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[5].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[5].oneOf[12].use[3]!./src/app/globals.css ***!
   \***************************************************************************************************************************************************************************************************************************************************************/
-.add-user{
-  height: 250px;
-  padding: 10px;
-  padding-left: 50px;
-  border: 1px solid orange;
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
-.display-user{
-  height: 200px;
-  padding: 10px;
-  margin-top: 10px;
-  padding-left: 50px;
-  border: 1px solid orange;
+
+main {
+  width: 100vw;
+  background-color: #000000;
+  height: 150vh;
+  margin-top: -10vh;
 }
-.add-user-input{
-  width: 250px;
-  height: 35px;
-  display: block;
-}
-.add-user-btn{
-  width: 250px;
-  height: 35px;
-  display: block;
-  margin-top: 20px;
-}
-.user-item {
-  background-color: skyblue;
-  margin-top: 10px;
-  padding: 5px;
-  border-radius: 5px;
-  width: 200px;
-  display: flex;
-  justify-content: space-between;
-}
+

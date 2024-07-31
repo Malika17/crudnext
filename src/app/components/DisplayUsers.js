@@ -2,6 +2,10 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { removeUser, editUser } from "../redux/slice";
+import "./Display.scss";
+import CloseIcon from "@mui/icons-material/Close";
+import EditIcon from "@mui/icons-material/Edit";
+import CheckIcon from "@mui/icons-material/Check";
 
 export default function DisplayUsers() {
   const userData = useSelector((data) => data.usersData.users);
@@ -23,7 +27,6 @@ export default function DisplayUsers() {
 
   return (
     <div className="display-user">
-      <h3>User List</h3>
       {userData.map((item) => (
         <div key={item.id} className="user-item">
           {isEditing === item.id ? (
@@ -32,18 +35,23 @@ export default function DisplayUsers() {
                 type="text"
                 value={newName}
                 onChange={(e) => setNewName(e.target.value)}
+                className="edit"
               />
-              <button onClick={() => handleSave(item.id)}>Save</button>
+              <button className="save" onClick={() => handleSave(item.id)}>
+                <CheckIcon />
+              </button>
             </>
           ) : (
             <>
               <span>{item.name}</span>
-              <button onClick={() => dispatch(removeUser(item.id))}>
-                Remove
-              </button>
-              <button onClick={() => handleEdit(item.id, item.name)}>
-                Edit
-              </button>
+              <div className="buttons">
+                <button onClick={() => dispatch(removeUser(item.id))}>
+                  <CloseIcon />
+                </button>
+                <button onClick={() => handleEdit(item.id, item.name)}>
+                  <EditIcon />
+                </button>
+              </div>
             </>
           )}
         </div>
